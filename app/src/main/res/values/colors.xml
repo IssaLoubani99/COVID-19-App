@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#535353</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
+    <color name="colorAccent">#000000</color>
+    <color name="mainColor">#2B7FAE</color>
+    <color name="infectedColor">#87AE2B</color>
+    <color name="secondColor">#518DAF</color>
+
+
+    <!-- COLOR FROM ASSETS PANEL -->
+    <color name="color_main_Color">#2b7fae</color>
+    <color name="color_text_Button_Color">#518daf</color>
+    <color name="color_outline_Color">#efefef</color>
+    <color name="color_hint_Color">#9a9a9a</color>
+
+</resources>

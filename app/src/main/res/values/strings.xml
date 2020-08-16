@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Covid-19 Tracker</string>
+    <string name="read_write">Read / Write</string>
+    <string name="read_and_write_activity">Read And Write Activity</string>
+    <string name="collection_s_name_dummy">Collection\'s Name : Dummy</string>
+    <string name="database_id_valuetowrite">Database ID : valueToWrite</string>
+    <string name="read">Read</string>
+    <string name="enter_value_to_write">Enter Value To Write !</string>
+    <string name="value_from_database">Value From Database</string>
+    <string name="write">Write</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="terms_conditions"><![CDATA[Terms & Conditions]]></string>
+    <string name="log_in_your_account">Log in your account</string>
+    <string name="welcome_placeholder">Welcome to you\'re doom</string>
+    <string name="reg_title">Welcome to\nCovid-19 tracker app</string>
+    <string name="server_key">AAAAObw_V28:APA91bEihxmB-T6lRAukfp_bO8AGoAU10jRjSriAGiseUJfR0oIL-iWLVwerNCweokoZzULuho-aeblTzn476VWGEY5JjLK7hH9Qa7t7kFXeFCZthsi6ZH_FS9HKwsR0yWWAnmq37-lW</string>
+    <string name="firebase_token">AIzaSyACWeD3kDB5Cyh9i7BVZJVpyn95JiiKyac</string>
+
+</resources>
