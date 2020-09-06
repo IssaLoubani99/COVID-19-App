@@ -35,6 +35,7 @@
         <item name="colorPrimaryDark">#000</item>
         <item name="colorAccent">#FFF</item>
         <item name="fontFamily">@font/mb</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_back</item>
     </style>
 
     <style name="SwitchStyle" parent="Theme.MaterialComponents.Light.NoActionBar">

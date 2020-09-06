@@ -19,6 +19,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +28,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 
 import com.example.firebasedemo.modules.Device;
 import com.example.firebasedemo.modules.NotificationMessagingService;
@@ -84,6 +87,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
     TextView welcomeTextView;
     Toolbar mainToolbar;
     TextInputEditText mainNameEditText, mainPhoneEditText;
+    CardView mainFormCardView;
     // form data
     String name, phone;
     // bluetooth helper library
@@ -161,6 +165,11 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         });
     }
 
+    private void addFormAnimation() {
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+        mainFormCardView.setAnimation(animation);
+    }
+
     private Task<Void> updateUserInfo(String field, Object value) {
         return currentUserRef.update(field, value);
     }
@@ -180,6 +189,11 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
             case R.id.logoutMenuBtn:
                 auth.signOut();
                 toSignInActivity();
+                return true;
+            case R.id.profileMenuBtn:
+                Intent intentToProfile = new Intent(getApplicationContext(), ProfileActivity.class);
+                intentToProfile.putExtra("currentUser", currentUser);
+                startActivity(intentToProfile);
                 return true;
 
             default:
@@ -220,6 +234,8 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
             isBluetoothRegistered = true;
         }
         super.onResume();
+        // add animation to form
+        addFormAnimation();
     }
 
     @Override
@@ -406,6 +422,8 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         mainScanBtn = findViewById(R.id.mainScanBtn);
         mainSubmitBtn = findViewById(R.id.mainSubmitBtn);
         mainInfectedBtn = findViewById(R.id.mainInfectedBtn);
+        // form
+        mainFormCardView = findViewById(R.id.mainFormCardView);
     }
 
     private void initFirebase() {

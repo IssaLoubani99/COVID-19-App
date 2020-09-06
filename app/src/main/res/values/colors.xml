@@ -13,5 +13,6 @@
     <color name="color_text_Button_Color">#518daf</color>
     <color name="color_outline_Color">#efefef</color>
     <color name="color_hint_Color">#9a9a9a</color>
+    <color name="iconColor">@color/color_main_Color</color>
 
 </resources>
