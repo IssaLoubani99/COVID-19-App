@@ -195,11 +195,13 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
                 intentToProfile.putExtra("currentUser", currentUser);
                 startActivity(intentToProfile);
                 return true;
-
+//            case R.id.whoIMetMenuBtn:
+//                Toast.makeText(getApplicationContext(), "Who I met ?", Toast.LENGTH_SHORT).show();
+//                return true;
             default:
                 return false;
         }
-        //return super.onOptionsItemSelected(item);
+
     }
 
     /* permission result */
