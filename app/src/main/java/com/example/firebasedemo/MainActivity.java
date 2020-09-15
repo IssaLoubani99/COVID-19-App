@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -88,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
     Toolbar mainToolbar;
     TextInputEditText mainNameEditText, mainPhoneEditText;
     CardView mainFormCardView;
+    CheckBox unknownPersonCheckBox;
     // form data
     String name, phone;
     // bluetooth helper library
@@ -133,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         // buttons handler
         mainSubmitBtn.setOnClickListener(view -> {
             mainSubmitBtn.setEnabled(false);
-            addNewPersonToDatabase();
+            addNewPersonToDatabase(true);
         });
         mainScanBtn.setOnClickListener(view -> {
             bluetoothScan();
@@ -162,6 +164,11 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
                         sDialog.dismissWithAnimation();
                     })
                     .show();
+        });
+        unknownPersonCheckBox.setOnCheckedChangeListener((compoundButton, checked) -> {
+            if (checked) {
+                addNewPersonToDatabase(false);
+            }
         });
     }
 
@@ -195,9 +202,9 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
                 intentToProfile.putExtra("currentUser", currentUser);
                 startActivity(intentToProfile);
                 return true;
-//            case R.id.whoIMetMenuBtn:
-//                Toast.makeText(getApplicationContext(), "Who I met ?", Toast.LENGTH_SHORT).show();
-//                return true;
+            case R.id.whoIMetMenuBtn:
+                startActivity(new Intent(getApplicationContext(), WhoIMetActivity.class));
+                return true;
             default:
                 return false;
         }
@@ -426,6 +433,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         mainInfectedBtn = findViewById(R.id.mainInfectedBtn);
         // form
         mainFormCardView = findViewById(R.id.mainFormCardView);
+        unknownPersonCheckBox = findViewById(R.id.unknownPersonCheckBox);
     }
 
     private void initFirebase() {
@@ -505,12 +513,16 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         messagingTokenRef = currentUserRef.collection("messages-tokens");
     }
 
-    private Person getNewPerson() {
-        return new Person(name, phone, getDateAndTime(), latitude, longitude);
+    private Person getNewPerson(boolean isKnown) {
+        if (isKnown) {
+            return new Person(name, phone, getDateAndTime(), latitude, longitude);
+        } else {
+            return new Person("n/a", "n/a", getDateAndTime(), latitude, longitude);
+        }
     }
 
-    private void addNewPersonToDatabase() {
-        whoIMetRef.add(getNewPerson())
+    private void addNewPersonToDatabase(boolean isKnown) {
+        whoIMetRef.add(getNewPerson(isKnown))
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         Toast.makeText(this, "Person met was Saved !", Toast.LENGTH_SHORT).show();

@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.firebasedemo.modules.ChangeUsernameDialog;
+import com.example.firebasedemo.modules.ChangeFieldDialog;
 import com.example.firebasedemo.modules.ProfileRecyclerViewItem;
 import com.example.firebasedemo.modules.User;
 import com.google.android.gms.tasks.Task;
@@ -38,7 +38,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         currentUser = (User) getIntent().getSerializableExtra("currentUser");
-        profileToolBar = findViewById(R.id.profileToolBar);
+        profileToolBar = findViewById(R.id.personToolBar);
         setSupportActionBar(profileToolBar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -92,12 +92,12 @@ public class ProfileActivity extends AppCompatActivity {
                  /* Toast.makeText(this, "Username ヾ(•ω•`)o", Toast.LENGTH_SHORT).show();
                  TODO Add an area to change username
                  add dialog */
-                    ChangeUsernameDialog changeUsernameDialog = new ChangeUsernameDialog(this, currentUser.username);
-                    changeUsernameDialog
+                    ChangeFieldDialog changeFieldDialog = new ChangeFieldDialog(this, currentUser.username);
+                    changeFieldDialog
                             .setPositiveButton("Save", (dialogInterface, i) -> {
                                 Log.w("alert dialog@", "status:cancel Positive clicked");
-                                String username = changeUsernameDialog.getInput();
-                                if (!username.equals(changeUsernameDialog.getDefault_input())) {
+                                String username = changeFieldDialog.getInput();
+                                if (!username.equals(changeFieldDialog.getDefault_input())) {
                                     updateUsername(username);
                                 }
                             })

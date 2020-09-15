@@ -93,7 +93,7 @@ public class SignInActivity extends AppCompatActivity implements TextWatcher {
             }
         });
         registerBtn.setOnClickListener(e -> toRegisterActivity());
-        choiceSwitch.setOnCheckedChangeListener((compoundButton, state) -> {
+        /*   choiceSwitch.setOnCheckedChangeListener((compoundButton, state) -> {
             // state is a boolean
             if (state) { // signing in with phone
                 // change flag
@@ -118,7 +118,7 @@ public class SignInActivity extends AppCompatActivity implements TextWatcher {
                 emailLayout.setStartIconDrawable(R.drawable.ic_email);
                 emailLayout.setHint("Email");
             }
-        });
+        });*/
     }
 
     @Override

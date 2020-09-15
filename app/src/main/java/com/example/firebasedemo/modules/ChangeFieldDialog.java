@@ -8,22 +8,22 @@ import android.widget.EditText;
 import com.example.firebasedemo.R;
 
 
-public class ChangeUsernameDialog extends AlertDialog.Builder {
-    public EditText usernameView;
+public class ChangeFieldDialog extends AlertDialog.Builder {
+    public EditText dataField;
     private String default_input = "";
 
-    public ChangeUsernameDialog(Context context, String default_input) {
+    public ChangeFieldDialog(Context context, String default_input) {
         super(context);
         this.default_input = default_input;
         setTitle("Enter a username");
         initEditText(context);
-        setView(usernameView);
+        setView(dataField);
         this.setIcon(R.drawable.ic_edit);
     }
 
     private void initEditText(Context context) {
-        usernameView = new EditText(context);
-        usernameView.setText(getDefault_input());
+        dataField = new EditText(context);
+        dataField.setText(getDefault_input());
     }
 
     // to change dialog button color
@@ -53,8 +53,8 @@ public class ChangeUsernameDialog extends AlertDialog.Builder {
     }
 
     public void showKeyboardAndFocus(Context context) {
-        usernameView.requestFocus();
-        usernameView.selectAll();
+        dataField.requestFocus();
+        dataField.selectAll();
         ((InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE)).toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
     }
 
@@ -63,6 +63,6 @@ public class ChangeUsernameDialog extends AlertDialog.Builder {
     }
 
     public String getInput() {
-        return usernameView.getText().toString().trim();
+        return dataField.getText().toString().trim();
     }
 }

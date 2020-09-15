@@ -31,6 +31,7 @@ public class ProfileRecyclerViewItem extends AbstractItem<ProfileRecyclerViewIte
         return new ViewHolder(view);
     }
 
+
     @Override
     public int getType() {
         return R.id.fastadapter_item_adapter;
@@ -48,7 +49,6 @@ public class ProfileRecyclerViewItem extends AbstractItem<ProfileRecyclerViewIte
             title = itemView.findViewById(R.id.title);
             description = itemView.findViewById(R.id.description);
             value = itemView.findViewById(R.id.value);
-
             infoIcon = itemView.findViewById(R.id.infoIcon);
             actionIcon = itemView.findViewById(R.id.actionIcon);
         }

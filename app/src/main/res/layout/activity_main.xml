@@ -130,13 +130,8 @@
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/mainSubmitBtn"
-                app:layout_constraintStart_toEndOf="@+id/mainScanBtn">
+                app:layout_constraintStart_toEndOf="@+id/mainScanBtn" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="14 days left."></TextView>
-            </Button>
 
             <CheckBox
 

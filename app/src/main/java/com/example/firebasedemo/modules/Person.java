@@ -4,6 +4,10 @@ public class Person {
     public String name, phone, date;
     public Double la, lo;
 
+    public Person() {
+
+    }
+
     public Person(String name, String phone, String date, Double la, Double lo) {
         this.name = name;
         this.phone = phone;

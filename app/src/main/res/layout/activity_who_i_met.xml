@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileActivity">
+    tools:context=".WhoIMetActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/personToolBar"
+        android:id="@+id/whoIMetToolbar"
         android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
@@ -16,33 +16,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="Profile" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
-        android:layout_width="258dp"
-        android:layout_height="249dp"
-        android:layout_marginTop="44dp"
-        android:src="@drawable/placeholder"
-        app:civ_border_color="#FF000000"
-        app:civ_border_width="2dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:title="Who I Met ?" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
+        android:id="@+id/whoIMetRecyclerView"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="24dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image"
-        app:layout_constraintVertical_bias="0.0"
-        tools:listitem="@layout/recycler_view_item" />
-
+        app:layout_constraintTop_toBottomOf="@+id/whoIMetToolbar"
+        tools:listitem="@layout/who_i_met_recycler_view_item" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -64,9 +64,9 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
-            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:orientation="horizontal">
 
 
@@ -80,7 +80,8 @@
                 android:text="Log In With Email"
                 android:textOff="Log In  With Email"
                 android:textOn="Log In  With Phone"
-                android:theme="@style/SwitchStyle" />
+                android:theme="@style/SwitchStyle"
+                android:visibility="invisible" />
 
             <Button
                 android:id="@+id/textView5"
