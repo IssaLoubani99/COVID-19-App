@@ -7,7 +7,7 @@
     android:background="?android:selectableItemBackground">
 
     <ImageView
-        android:id="@+id/personImageView"
+        android:id="@+id/notificationImageView"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
@@ -24,30 +24,30 @@
         android:layout_marginBottom="8dp"
         android:textColor="@android:color/black"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/personPhone"
-        app:layout_constraintStart_toEndOf="@+id/personImageView"
-        app:layout_constraintTop_toTopOf="@+id/personImageView"
+        app:layout_constraintBottom_toTopOf="@+id/notificationMessage"
+        app:layout_constraintStart_toEndOf="@+id/notificationImageView"
+        app:layout_constraintTop_toTopOf="@+id/notificationImageView"
         tools:text="@tools:sample/full_names" />
 
     <TextView
-        android:id="@+id/personPhone"
+        android:id="@+id/notificationMessage"
         android:layout_width="285dp"
         android:layout_height="20dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/personImageView"
+        app:layout_constraintBottom_toBottomOf="@+id/notificationImageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.050"
-        app:layout_constraintStart_toEndOf="@+id/personImageView"
+        app:layout_constraintStart_toEndOf="@+id/notificationImageView"
         tools:text="@tools:sample/lorem[4:10]" />
 
     <TextView
-        android:id="@+id/personDate"
+        android:id="@+id/notificationDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/personImageView"
+        app:layout_constraintTop_toTopOf="@+id/notificationImageView"
         tools:text="@tools:sample/date/hhmm" />
 
     <View

@@ -58,10 +58,10 @@ public class WhoIMetRecyclerViewItem extends AbstractItem<WhoIMetRecyclerViewIte
         public ViewHolder(@NotNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.personName);
-            phone = itemView.findViewById(R.id.personPhone);
-            date = itemView.findViewById(R.id.personDate);
+            phone = itemView.findViewById(R.id.notificationMessage);
+            date = itemView.findViewById(R.id.notificationDate);
 
-            profilePic = itemView.findViewById(R.id.personImageView);
+            profilePic = itemView.findViewById(R.id.notificationImageView);
         }
 
         @Override

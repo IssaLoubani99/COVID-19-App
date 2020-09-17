@@ -5,14 +5,19 @@
     <item
         android:id="@+id/whoIMetMenuBtn"
         android:icon="@drawable/ic_people"
-        android:title="@string/who_i_met"
+        android:title="@string/who_i_met_menu_item"
         app:showAsAction="always" />
-
+    <item
+        android:id="@+id/notificationMenuBtn"
+        android:icon="@drawable/ic_notification"
+        android:title="@string/notification_menu_item"
+        android:actionLayout="@layout/menu_action_item_badge"
+        app:showAsAction="always" />
     <item
         android:id="@+id/profileMenuBtn"
-        android:title="Settings" />
+        android:title="@string/settings_menu_item" />
     <item
         android:id="@+id/logoutMenuBtn"
-        android:title="Log Out" />
+        android:title="@string/log_out_menu_item" />
 
 </menu>

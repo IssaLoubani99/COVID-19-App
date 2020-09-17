@@ -30,6 +30,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 
 import com.example.firebasedemo.modules.Device;
 import com.example.firebasedemo.modules.NotificationMessagingService;
@@ -49,6 +50,7 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.mikepenz.actionitembadge.library.ActionItemBadge;
 import com.tapadoo.alerter.Alerter;
 
 import org.pixsee.fcm.Message;
@@ -104,6 +106,11 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
     double latitude = 0.0, longitude = 0.0;
     // FLAGS do not change
     boolean isLocationServiceReady = false, isBluetoothRegistered = false, deviceDiscovered = false;
+    // notification counter
+    public static int notificationCounter = 1;
+    // menu
+    Menu mainMenu;
+    MenuItem notificationMenuItem;
 
     @SuppressLint("MissingPermission")
     @Override
@@ -185,6 +192,9 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu_toolbar, menu);
+        mainMenu = menu;
+        notificationMenuItem = menu.findItem(R.id.notificationMenuBtn);
+        initNotificationMenuItem(notificationMenuItem);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -204,6 +214,10 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
                 return true;
             case R.id.whoIMetMenuBtn:
                 startActivity(new Intent(getApplicationContext(), WhoIMetActivity.class));
+                return true;
+            case R.id.notificationMenuBtn:
+                // startActivity(new Intent(getApplicationContext(), WhoIMetActivity.class));
+                startActivity(new Intent(getApplicationContext(), NotificationActivity.class));
                 return true;
             default:
                 return false;
@@ -689,11 +703,44 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
                 .setIconColorFilter(0) // Optional - Removes white tint
                 .setBackgroundColorRes(R.color.infectedColor) // or setBackgroundColorInt(Color.CYAN)
                 .show();
+      /* Note:
+         long name i know o((>ω< ))o
+         that occurs because there is another class in this activity named notification
+         so to distinguish between them i needed to call it from it's package and not by import */
+        com.example.firebasedemo.modules.Notification notification = new com.example.firebasedemo.modules.Notification();
+
+        notification.date = System.currentTimeMillis();
+        notification.isRead = false;
+        notification.message = msg;
+        // update notification counter
+        ActionItemBadge.update(notificationMenuItem, ++notificationCounter);
+        currentUserRef.collection("notifications").document().set(notification)
+                .addOnCompleteListener(task -> {
+                    if (task.isComplete()) {
+                        Log.w("Message-Notification-Upload@", "status:success");
+                    } else {
+                        Log.w("Message-Notification-Upload@", "status:error", task.getException());
+                        Toast.makeText(context, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     private void focusOnLocation(double la, double lo) {
         if (isLocationServiceReady && mainGoogleMap != null) {
             mainGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(la, lo), 15));
         }
+    }
+
+    private void initNotificationMenuItem(MenuItem notification) {
+
+
+        ActionItemBadge.update(
+                this,
+                notification,
+                ContextCompat.getDrawable(this, R.drawable.ic_notification),
+                ActionItemBadge.BadgeStyles.RED,
+                notificationCounter
+        );
+
     }
 }

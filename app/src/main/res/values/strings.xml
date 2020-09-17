@@ -15,8 +15,11 @@
     <string name="log_in_your_account">Log in your account</string>
     <string name="welcome_placeholder">Welcome to you\'re doom</string>
     <string name="reg_title">Welcome to\nCovid-19 tracker app</string>
-    <string name="server_key">AAAAObw_V28:APA91bEihxmB-T6lRAukfp_bO8AGoAU10jRjSriAGiseUJfR0oIL-iWLVwerNCweokoZzULuho-aeblTzn476VWGEY5JjLK7hH9Qa7t7kFXeFCZthsi6ZH_FS9HKwsR0yWWAnmq37-lW</string>
+    <string name="server_key">AAAAYsVv_lc:APA91bHYCaAhyvksii2L_DHO0gB3Q0_O7E2PzZ5v2CTTBpwlRznFtFDn6hZJcr-5FcBKLR5p0MCHMaggnT6oduyRBvU5ARUTfZCgh3KqnVe6T0lvONx3xt7wR5XdaVgRsgv6Xao_V9oJ</string>
     <string name="firebase_token">AIzaSyACWeD3kDB5Cyh9i7BVZJVpyn95JiiKyac</string>
-    <string name="who_i_met">Who I Met ?</string>
+    <string name="who_i_met_menu_item">Who I Met ?</string>
+    <string name="notification_menu_item">Notification</string>
+    <string name="settings_menu_item">Settings</string>
+    <string name="log_out_menu_item">Log Out</string>
 
 </resources>

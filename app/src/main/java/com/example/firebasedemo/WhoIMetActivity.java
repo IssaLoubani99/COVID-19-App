@@ -37,7 +37,6 @@ public class WhoIMetActivity extends AppCompatActivity {
         initFirebase();
         initComponents();
         initRecyclerViewAdapters();
-        whoIMetToolbar = findViewById(R.id.whoIMetToolbar);
         setSupportActionBar(whoIMetToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -84,7 +83,8 @@ public class WhoIMetActivity extends AppCompatActivity {
     }
 
     private void initComponents() {
-        whoIMetRecyclerView = findViewById(R.id.whoIMetRecyclerView);
+        whoIMetRecyclerView = findViewById(R.id.notificationRecyclerView);
+        whoIMetToolbar = findViewById(R.id.notificationToolBar);
     }
 
     private void initFirebase() {
